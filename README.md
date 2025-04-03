@@ -104,4 +104,32 @@ mv fineweb-10BT_text_document.* megatron-data/
 
 ## Schedule pretraining run
 
-(TODO)
+If you haven't already, clone this repository:
+
+```
+git clone https://github.com/spyysalo/lumi-fineweb-replication.git
+```
+
+Then copy the scripts `train-gpt.sh` and `launch.sh` into your working directory:
+
+```
+cp lumi-fineweb-replication/train-gpt.sh .
+cp lumi-fineweb-replication/launch.sh .
+```
+
+You may want to edit `train-gpt.sh` to set the account, time, number of nodes (etc.) to values appropriate for your setup. Then, you can schedule the run with either
+
+```
+./train-gpt.sh
+```
+
+or
+
+```
+mkdir logs
+sbatch train-gpt.sh
+```
+
+You can then use e.g. `squeue --me` to see the status of the scheduled job and `squeue --me --start` for a chance to see a bad estimate of when the job might start if it hasn't already.
+
+Once the job is running, you can use e.g. `tail -f logs/latest.sh` to follow the logs.
