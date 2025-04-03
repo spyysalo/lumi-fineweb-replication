@@ -164,7 +164,7 @@ export NVTE_DEBUG_LEVEL=0
 DATA_ROOT="$BASE_DIR/megatron-data"
 DATA_PATH="1.0 ${DATA_ROOT}/fineweb-10BT_text_document"
 DATA_CACHE_PATH="$DATA_ROOT/cache"
-TOKENIZER_MODEL="gpt2-tokenizer"
+TOKENIZER_MODEL="gpt2"
 
 # MODEL
 NUM_LAYERS=24
