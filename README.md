@@ -133,3 +133,7 @@ sbatch train-gpt.sh
 You can then use e.g. `squeue --me` to see the status of the scheduled job and `squeue --me --start` for a chance to see a bad estimate of when the job might start if it hasn't already.
 
 Once the job is running, you can use e.g. `tail -f logs/latest.sh` to follow the logs.
+
+The logs should show a throughput of approximately 80 TFLOP/s/GPU (i.e. approx. 160 TFLOP/s/MI250X device) and your training loss curve should closely resemble the following:
+
+![Training loss](loss.png)
