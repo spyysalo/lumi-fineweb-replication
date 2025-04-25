@@ -126,7 +126,11 @@ export WORLD_SIZE=$SLURM_NTASKS    # Note: only valid if ntasks==ngpus
 export OMP_NUM_THREADS=2    # OMP_NUM_THREADS=1 is the safe option
 export HSA_ENABLE_SDMA=0
 
-export NCCL_NCHANNELS_PER_PEER=32
+# This setting is reported to provide a performance improvement
+# (https://arxiv.org/pdf/2408.14090v1) but as of April 2025 is causing
+# training instability on LUMI with pipeline parallelism.
+# (see https://github.com/spyysalo/lumi-fineweb-replication/issues/1)
+#export NCCL_NCHANNELS_PER_PEER=32
 
 # Set interfaces to be used by RCCL.
 # This is needed as otherwise RCCL tries to use a network interface it has
